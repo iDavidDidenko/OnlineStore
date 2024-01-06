@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ecommerce</title>
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
+
+    <!-- navbar section  -->
+    
+    <link href="~/css/Index/bootstrap.min.css" rel="stylesheet">
+
+    <link href="~/css/Index/style.css" rel="stylesheet">
+
+    <!--font-family-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+        rel="stylesheet">
+    <!--font-awesome.min.css-->
+    <link rel="stylesheet" href="~/css/font-awesome.min.css">
+
+    <!--linear icon css-->
+    <link rel="stylesheet" href="~/css/linearicons.css">
+
+    <!--bootstrap.min.css-->
+    <link rel="stylesheet" href="~/css/bootstrap.min.css">
+
+    <!-- bootsnav -->
+    <link rel="stylesheet" href="~/css/bootsnav.css">
+
+    <!--style.css-->
+    <link rel="stylesheet" href="~/css/style.css">
+
+    <!--responsive.css-->
+    <link rel="stylesheet" href="~/css/responsive.css">
+    
+
+    <!-- navbar section  -->
+
+</head>
+
+<body>
+    <!--welcome-hero start -->
+    <header id="home" class="welcome-hero">
+        <!-- top-area Start -->
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy" data-minus-value-desktop="70"
+            data-minus-value-mobile="55" data-speed="1000">
+            <div class="container">
+                <!-- Start Atribute Navigation -->
+
+                <!-- **************************************************************************************** -->
+                <!-- ************************** TODO - JS - ADD / Remove from CART ************************** -->
+                <div class="attr-nav">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="lnr lnr-cart"></span>
+                                <span class="badge badge-bg-1">2</span>
+                            </a>
+                            <ul class="dropdown-menu cart-list s-cate">
+                                <li class="single-cart-list">
+                                    <a href="#" class="photo"><img src="" class="cart-thumb" alt="image" /></a>
+                                    <div class="cart-list-txt">
+                                        <h6><a href="#">arm <br> chair</a></h6>
+                                        <p>1 x - <span class="price">$180.00</span></p>
+                                    </div><!--/.cart-list-txt-->
+                                    <div class="cart-close">
+                                        <span class="lnr lnr-cross"></span>
+                                    </div><!--/.cart-close-->
+                                </li><!--/.single-cart-list -->
+                            </ul>
+                        </li><!--/.dropdown-->
+                    </ul>
+                </div><!--/.attr-nav-->
+                <!-- **************************************************************************************** -->
+                <!-- End Atribute Navigation -->
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" asp-page="/Index">sine<span>mkt</span>.</a>
+                    
+                </div><!--/.navbar-header-->
+                <!-- End Header Navigation -->
+                <!-- Collect the nav links, forms, and other content for toggling -->
+            </div><!--/.container-->
+            <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
+                <ul class="nav navbar-nav navbar-center" data-in="fadeInDown" data-out="fadeOutUp">
+                    <li><a asp-page="/Index">home</a></li>
+                    <li><a asp-page="/Contact">contact</a></li>
+                    <li><a asp-page="/About">About</a></li>
+                </ul><!--/.nav -->
+            </div><!-- /.navbar-collapse -->
+        </nav><!--/nav-->
+        <!-- End Navigation -->
+    </header><!--/.welcome-hero-->
+
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <!-- FOOTER =============================-->
+     <div class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <p class="footernote">
+                    Connect with Scorilo
+                </p>
+                <ul class="social-iconsfooter">
+                    <li><a href="#"><i class="fa fa-phone"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                </ul>
+                <p>
+                    &copy; 2017 Your Website Name<br />
+                    Scorilo - Free template by <a href="https://www.wowthemes.net/">WowThemesNet</a>
+                </p>
+            </div>
+        </div>
+    </div> 
+
+
+
+    <!-- footer -->
+
+
+    <script src="~/js/jquery.js"></script>
+
+    <!--modernizr.min.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+    <!--bootstrap.min.js-->
+    <script src="~/js/bootstrap.min.js"></script>
+
+    <!-- bootsnav js -->
+    <script src="~/js/bootsnav.js"></script>
+
+    <!--owl.carousel.js-->
+    <script src="~/js/owl.carousel.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+
+    <!--Custom JS-->
+    <script src="~/js/custom.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

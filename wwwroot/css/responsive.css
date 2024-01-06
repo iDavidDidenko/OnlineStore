@@ -1,0 +1,48 @@
+
+/* Response on CART Menu */
+@media screen and (max-width:1199px){
+	nav.navbar.bootsnav ul.nav > li > a { padding: 35px 10px;}
+	.dropdown-menu {left: -200px;}
+	
+}/*max-width:1199px*/
+
+/* Response on the middle menu */
+@media screen and (max-width:1024px){
+	nav.navbar.bootsnav.menu-center ul.nav.navbar-center
+	{	
+	float: none!important;
+	margin: 5% auto;
+	display: table;
+	}
+
+}
+@media screen and (max-width:992px){
+	nav.navbar.bootsnav .navbar-collapse.collapse.in
+	{
+		z-index: 2;
+		background-color: #f8f9fd;
+		/* padding-bottom: 30px; */
+		/* text-align: center; */
+		transition: none;
+	}
+	nav.navbar.bootsnav.menu-center ul.nav.navbar-center 
+	{
+	
+		width: 45%;
+		text-align: center;
+		/* padding: 15px 0px */
+	}
+	nav.navbar.bootsnav .navbar-brand
+	{
+		padding: 25px;
+	}
+	nav.navbar.bootsnav ul.nav > li > a 
+	{
+		padding: 15px 0px;
+		/* background-color: aqua; */
+	}
+	.attr-nav > ul > li > a {
+		padding: 20px 15px;
+	}
+}/*max-width:992px*/
+

@@ -1,0 +1,263 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+
+    // Your product data (just a sample)
+    @* List<Product> products = new List<Product>
+{
+new Product { Name = "Product 1", Price = "$49.00", ImageUrl = "../../images/product1.jpg" },
+// Add more products as needed
+// ...
+}; *@
+    int itemsPerPage = 9; // Assuming 9 items per page
+    int totalPages = 3; // Assuming there are 3 pages for a total of 24 items
+    int currentPage = Request.Query["page"].FirstOrDefault() != null ? Convert.ToInt32(Request.Query["page"]) : 1;
+}
+
+@* @for(int i = 0; i < 200; i++)
+{
+<div class="text-center">
+<h1 class="display-4">Welcome</h1>
+<p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+} *@
+
+
+
+
+<!-- HEADER =============================-->
+<div class="item header margin-top-0">
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="text-homeimage">
+                        <div class="maintext-image" data-scrollreveal="enter top over 1.5s after 0.1s">
+                            Increase Digital Sales
+                        </div>
+                        <div class="subtext-image" data-scrollreveal="enter bottom over 1.7s after 0.3s">
+                            Boost revenue with Scorilo
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- STEPS =============================-->
+<div class="item content">
+    <div class="container toparea">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="col editContent">
+                    <span class="numberstep"><i class="fa fa-shopping-cart"></i></span>
+                    <h3 class="numbertext">Choose our Products</h3>
+                    <p>
+                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus
+                        eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget
+                        quam.
+                    </p>
+                </div>
+                <!-- /.col-md-4 -->
+            </div>
+            <!-- /.col-md-4 col -->
+            <div class="col-md-4 editContent">
+                <div class="col">
+                    <span class="numberstep"><i class="fa fa-gift"></i></span>
+                    <h3 class="numbertext">Pay with PayPal or Card</h3>
+                    <p>
+                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus
+                        eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget
+                        quam.
+                    </p>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.col-md-4 col -->
+            <div class="col-md-4 editContent">
+                <div class="col">
+                    <span class="numberstep"><i class="fa fa-download"></i></span>
+                    <h3 class="numbertext">Get Instand Download</h3>
+                    <p>
+                        Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus
+                        eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget
+                        quam.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- LATEST ITEMS =============================-->
+<section class="item content">
+    <div class="container">
+        <div class="underlined-title">
+            <div class="editContent">
+                <h1 class="text-center latestitems">LATEST ITEMS</h1>
+            </div>
+            <div class="wow-hr type_short">
+                <span class="wow-hr-h">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                </span>
+            </div>
+        </div>
+        @for (int i = (currentPage - 1) * itemsPerPage; i < Math.Min(currentPage * itemsPerPage, 24); i += 3)
+        {
+           
+                @for (int j = i; j < Math.Min(i + 3, 24); j++)
+                {
+                    <div class="col-md-4">
+                        <div class="productbox">
+                            <div class="fadeshop">
+                                <div class="captionshop text-center" style="display: none;">
+                                    <h3>test @i</h3>
+                                    <p>
+                                        This is a short excerpt to generally describe what the item is about.
+                                    </p>
+                                    <p>
+                                        <a href="#" class="learn-more detailslearn"><i class="fa fa-shopping-cart"></i>
+                                            Purchase</a>
+                                        <a href="#" class="learn-more detailslearn"><i class="fa fa-link"></i> Details</a>
+                                    </p>
+                                </div>
+                                <span class="maxproduct"><img src="../../images/topWoodImg.jpeg" alt=""></span>
+                            </div>
+                            <div class="product-details">
+                                <a href="#">
+                                    <h1>test @j</h1>
+                                </a>
+                                <span class="price">
+                                    <span class="edd_price">test</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            
+
+        }
+<div class="pagination">
+    @for (int page1 = 1; page1 <= totalPages; page1++)
+    {
+        <a href="?page=@page1" class="@(page1 == currentPage ? "active" : "") tm-paging-link">@page1</a>
+    }
+</div>
+<a href="?page=@(currentPage < totalPages ? currentPage + 1 : totalPages)" class="btn btn-primary tm-btn-next">Next Page</a>
+        @* @for (int page = 1; page < totalPages; page++)
+        {
+    <div class="row products-container hidden" data-page = page>
+        @for (int i = page * productsPerPage; i < (page + 1) * productsPerPage && i < 24; i++)
+        {
+            <div class="col-md-4">
+                <!-- Your product HTML structure -->
+                <!-- ... -->
+            </div>
+        }
+    </div>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <ul class="pagination">
+            @for (int i = 0; i < totalPages; i++)
+            {
+                <li><a href="#" class="page-link" data-page="@i">@((i + 1).ToString())</a></li>
+            }
+        </ul>
+    </div>
+</div> *@
+        @* <div class="col-md-4">
+        <div class="productbox">
+        <div class="fadeshop">
+        <div class="captionshop text-center" style="display: none;">
+        <h3>Item Name</h3>
+        <p>
+        This is a short excerpt to generally describe what the item is about.
+        </p>
+        <p>
+        <a href="#" class="learn-more detailslearn"><i class="fa fa-shopping-cart"></i>
+        Purchase</a>
+        <a href="#" class="learn-more detailslearn"><i class="fa fa-link"></i> Details</a>
+        </p>
+        </div>
+        <span class="maxproduct"><img src="../../images/topWoodImg.jpeg" alt=""></span>
+        </div>
+        <div class="product-details">
+        <a href="#">
+        <h1>Calypso Theme</h1>
+        </a>
+        <span class="price">
+        <span class="edd_price">$49.00</span>
+        </span>
+        </div>
+        </div>
+        </div>
+        <!-- /.productbox -->
+        <div class="col-md-4">
+        <div class="productbox">
+        <div class="fadeshop">
+        <div class="captionshop text-center" style="display: none;">
+        <h3>Item Name</h3>
+        <p>
+        This is a short excerpt to generally describe what the item is about.
+        </p>
+        <p>
+        <a href="#" class="learn-more detailslearn"><i class="fa fa-shopping-cart"></i>
+        Purchase</a>
+        <a href="#" class="learn-more detailslearn"><i class="fa fa-link"></i> Details</a>
+        </p>
+        </div>
+        <span class="maxproduct"><img src="../../images/topWoodImg.jpeg" alt=""></span>
+        </div>
+        <div class="product-details">
+        <a href="#">
+        <h1>FastSell Theme</h1>
+        </a>
+        <span class="price">
+        <span class="edd_price">$49.00</span>
+        </span>
+        </div>
+        </div>
+        </div>
+        <!-- /.productbox -->
+        <div class="col-md-4">
+        <div class="productbox">
+        <div class="fadeshop">
+        <div class="captionshop text-center" style="display: none;">
+        <h3>Item Name</h3>
+        <p>
+        This is a short excerpt to generally describe what the item is about.
+        </p>
+        <p>
+        <a href="#" class="learn-more detailslearn"><i class="fa fa-shopping-cart"></i>
+        Purchase</a>
+        <a href="#" class="learn-more detailslearn"><i class="fa fa-link"></i> Details</a>
+        </p>
+        </div>
+        <span class="maxproduct"><img src="../../images/topWoodImg.jpeg" alt=""></span>
+        </div>
+        <div class="product-details">
+        <a href="#">
+        <h1>Biscaya Theme</h1>
+        </a>
+        <span class="price">
+        <span class="edd_price">$49.00</span>
+        </span>
+        </div>
+        </div>
+        </div> *@
+
+    </div>
+    </div>
+    <script>
+
+    </script>
+</section>
+
