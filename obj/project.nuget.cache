@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7+KYDwuQGqMU1MhO8NFsnyNCAt8juMw0cKVItTW0+WiWgo6/yOEpZ52EBEN8S2GLldGKTQyszgCtYLp7guGZ1g==",
+  "dgSpecHash": "ikdzdNJwH56c6/M6ZIHYeoTN0oj3821la6PG7bC/L0FWcjotSYDlgLpBiyAqJzUfdj0jzUk0SLCc6Y4JRz1+Fw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\David\\Desktop\\dotnet\\Ecommerce\\Ecommerce.csproj",
+  "projectFilePath": "/Users/daviddid/Desktop/OnlineStore/OnlineStore/Ecommerce.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
