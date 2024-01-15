@@ -1,6 +1,42 @@
 $(document).ready(function(){
 	"use strict";
     
+
+	document.getElementById("cartList").addEventListener('click', function (event) {
+		// Check if the clicked element has the class 'lnr-cross'
+		if (event.target.classList.contains('lnr-cross')) {
+			// Find the closest ancestor with class 'single-cart-list' (the <li> element)
+			const listItem = event.target.closest('.single-cart-list');
+	
+			// Check if a listItem is found before attempting to remove
+			if (listItem) {
+				listItem.remove();
+			}
+		}
+	});
+	
+	document.querySelectorAll('.addProduct').forEach(function (button) {
+		button.addEventListener('click', addProductFunc);
+	});
+	
+	function addProductFunc(event) {
+		// 'event.currentTarget' refers to the clicked button
+		const value = event.currentTarget.closest('.product-details').querySelector('.getSelectedProduct').dataset.index;
+		// Create a new li element
+		document.getElementById("cartList").innerHTML += ` <li class="single-cart-list">
+			<a href="#" class="photo"><img src="" class="cart-thumb" alt="image" /></a>
+			<div class="cart-list-txt">
+				<h6><a href="#">arm <br> chair</a></h6>
+				<p>1 x - <span class="price">$180.00</span></p>
+			</div><!--/.cart-list-txt-->
+			<div class="cart-close">
+				<span class="lnr lnr-cross"></span>
+			</div><!--/.cart-close-->
+		</li>`;
+		// Append the new li element to the cart list
+	}
+	
+	
         /*==================================
 * Author        : "ThemeSine"
 * Template Name : Furniture E- commarce HTML Template
